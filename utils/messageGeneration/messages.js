@@ -274,8 +274,7 @@ function calculateMD5(details, type) {
   function getMD5text(part) {
     var message = '';
     var constants = part.constants.map(function(field) {
-      var rtv = field.type + ' ' + field.name + '=' + field.raw;
-      return rtv;
+      return field.type + ' ' + field.name + '=' + field.raw;
     }).join('\n');
 
     var fields = part.fields.map(function(field) {
