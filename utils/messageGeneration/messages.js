@@ -196,12 +196,12 @@ function getMessageFromFile(messageType, filePath, type, callback) {
         callback(error);
       } else {
         if (type == "msg") {
-          message = buildMessageClass(details);
+          var message = buildMessageClass(details);
           setMessageInRegistry(messageType, message, type);
           callback(null, message);
         } else if (type == "srv") {
-          request = buildMessageClass(details.request);
-          response = buildMessageClass(details.response);
+          var request = buildMessageClass(details.request);
+          var response = buildMessageClass(details.response);
           setMessageInRegistry(messageType, request, type, "Request");
           setMessageInRegistry(messageType, response, type, "Response");
           setMessageInRegistry(messageType, () => {return request.md5sum(); }, type, 'md5sum');
